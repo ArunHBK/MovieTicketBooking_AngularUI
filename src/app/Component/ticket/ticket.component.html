@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<section id="home" class="mt-5">
+    <div class="container mt-5 pt-5">
+        <ng-container *ngIf="!loading">
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-5" *ngFor="let ticket of tickets">
+                    <div class="card border-0 shadow overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-sm-5 bg-repeat-0 bg-size-cover"
+                                style="background-image: url({{ticket.movie.movieImg}}); min-height: 14rem;"></div>
+                            <div class="col-sm-7">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ticket.movie.movieName}}</h4>
+                                    <p class="card-text">Theatre : <strong>{{ ticket.theatre.theatreName }}</strong></p>
+                                    <p class="card-text">No. of tickets booked: <strong>{{ticket.totalCount}}</strong>
+                                    </p>
+                                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div *ngIf="loading" class="row min-vh-100 justify-content-center align-items-center">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+                <div class="spinner-grow text-muted" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

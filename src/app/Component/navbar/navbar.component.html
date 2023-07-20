@@ -1,0 +1,51 @@
+<header class="navbar bg-light  navbar-expand-lg fixed-top">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">
+      TicketBooking
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <nav class="collapse navbar-collapse" id="navbarCollapse2">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            class="nav-link">Movies</a>
+        </li>
+        <!-- <li class="nav-item" *ngIf="authStatus" >
+          <a routerLink="/tickets" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+            class="nav-link">Tickets</a>
+        </li> -->
+      </ul>
+      <ng-container *ngIf="!authStatus">
+        <a routerLink="/login" class="btn btn-outline-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0">
+          <i class="ai-login me-2 ms-n1"></i>
+          Login
+        </a>
+        <a routerLink="/register" class="btn btn-primary btn-sm fs-sm d-lg-none ms-3 mb-4 mb-lg-0">
+          <i class="ai-login me-2 ms-n1"></i>
+          Sign up
+        </a>
+      </ng-container>
+      <a *ngIf="authStatus" role="button" (click)="logout()" class="btn btn-outline-primary btn-sm d-lg-none">
+        <i class="ai-login me-2 ms-n1"></i>
+        Logout
+      </a>
+    </nav>
+    <a *ngIf="!authStatus" routerLink="/login" class="btn btn-outline-primary btn-sm me-2 d-none d-lg-inline-flex">
+      <i class="ai-login me-2 ms-n1"></i>
+      Login
+    </a>
+    <button routerLink="/register" *ngIf="!authStatus" class="btn btn-primary btn-sm d-none d-lg-inline-flex">
+      <i class="ai-login me-2 ms-n1"></i>
+      Sign up
+    </button>
+    <a *ngIf="authStatus" role="button" (click)="logout()"
+      class="btn btn-outline-primary btn-sm d-none d-lg-inline-flex">
+      <i class="ai-login me-2 ms-n1"></i>
+      Logout
+    </a>
+  </div>
+</header>

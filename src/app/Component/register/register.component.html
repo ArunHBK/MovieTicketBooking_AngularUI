@@ -1,0 +1,134 @@
+<section id="register">
+    <div class="container">
+      <div class="row min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="col-lg-7">
+          <div class="card">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <img
+                  src="https://d33wubrfki0l68.cloudfront.net/d7b3128e115346d419e411ffe3ac9a97c6c1bbd5/70041/assets/images/illustrations/sign-up-illustration.svg"
+                  width="200" height="200" alt="Login page illustration">
+                <h3>SingUp to create your account</h3>
+              </div>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input formControlName="firstName" class="form-control form-control-sm" type="text" name="firstName"
+                      id="firstName" [ngClass]="{
+                        'is-invalid': registerForm.controls['firstName'].invalid 
+                        && registerForm.controls['firstName'].touched  ,
+                        'is-invalid ': submitted 
+                        && registerForm.controls['firstName'].untouched  ,
+                        '':registerForm.controls['firstName'].valid,
+                      }" />
+                    <div class="invalid-feedback" *ngIf="(registerForm.controls['firstName'].untouched
+                    || registerForm.controls['firstName'].invalid )
+                    && registerForm.controls['firstName'].errors?.['required']">
+                      This field is required
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input formControlName="lastName" class="form-control form-control-sm" type="text" name="lastName"
+                      id="lastName" [ngClass]="{
+                        'is-invalid': registerForm.controls['lastName'].invalid 
+                        && registerForm.controls['lastName'].touched  ,
+                        'is-invalid ': submitted 
+                        && registerForm.controls['lastName'].untouched  ,
+                        '':registerForm.controls['lastName'].valid,
+                      }" />
+                    <div class="invalid-feedback" *ngIf="(registerForm.controls['lastName'].untouched
+                    || registerForm.controls['lastName'].invalid )
+                    && registerForm.controls['lastName'].errors?.['required']">
+                      This field is required
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="emailAddress" class="form-label">E-mail</label>
+                    <input formControlName="emailAddress" class="form-control form-control-sm" type="emailAddress" name="emailAddress"
+                      id="emailAddress" [ngClass]="{
+                        'is-invalid': registerForm.controls['emailAddress'].invalid 
+                        && registerForm.controls['emailAddress'].touched  ,
+                        'is-invalid ': submitted 
+                        && registerForm.controls['emailAddress'].untouched  ,
+                        '':registerForm.controls['emailAddress'].valid,
+                      }" />
+                    <div class="invalid-feedback" *ngIf="(registerForm.controls['emailAddress'].untouched
+                    || registerForm.controls['emailAddress'].invalid )
+                    && registerForm.controls['emailAddress'].errors?.['required']">
+                      This field is required
+                    </div>
+                  </div>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input formControlName="username" class="form-control form-control-sm" type="text" name="username"
+                    id="username" [ngClass]="{
+                      'is-invalid': registerForm.controls['username'].invalid 
+                      && registerForm.controls['username'].touched  ,
+                      'is-invalid ': submitted 
+                      && registerForm.controls['username'].untouched  ,
+                      '':registerForm.controls['username'].valid,
+                    }" />
+                  <div class="invalid-feedback" *ngIf="(registerForm.controls['username'].untouched
+                  || registerForm.controls['username'].invalid )
+                  && registerForm.controls['username'].errors?.['required']">
+                    This field is required
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input formControlName="password" class="form-control form-control-sm" type="password" id="password"
+                    [ngClass]="{
+                      'is-invalid': registerForm.controls['password'].invalid 
+                      && registerForm.controls['password'].touched  ,
+                      'is-invalid ': submitted 
+                      && registerForm.controls['password'].untouched  ,
+                      '':registerForm.controls['password'].valid,
+                    }" />
+                  <div class="invalid-feedback" *ngIf="(registerForm.controls['password'].untouched
+                || registerForm.controls['password'].invalid )
+                && registerForm.controls['password'].errors?.['required']">
+                    This field is required
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label for="contactNumber" class="form-label">Contact Number</label>
+                    <div class="input-group">
+                        <div class="input-group-text">+91</div>
+                        <input formControlName="contactNumber" class="form-control form-control-sm" type="text" name="contactNumber"
+                      id="contactNumber" [ngClass]="{
+                        'is-invalid': registerForm.controls['contactNumber'].invalid 
+                        && registerForm.controls['contactNumber'].touched  ,
+                        'is-invalid ': submitted 
+                        && registerForm.controls['contactNumber'].untouched  ,
+                        '':registerForm.controls['contactNumber'].valid,
+                      }" />
+                    <div class="invalid-feedback" *ngIf="(registerForm.controls['contactNumber'].untouched
+                    || registerForm.controls['contactNumber'].invalid )
+                    && registerForm.controls['contactNumber'].errors?.['required']">
+                      This field is required
+                    </div>
+                    </div>
+                </div>
+                <div class="text-center mb-3">
+                  <ng-container *ngIf="!submitted else loadingButton">
+                    <button type="submit" class="btn btn-sm btn-primary">Register</button>
+                  </ng-container>
+                  <ng-template #loadingButton>
+                    <button class="btn btn-sm btn-success" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                      Checking..
+                    </button>
+                  </ng-template>
+  
+                </div>
+              </form>
+              <div class="text-center mt-4">
+                 <a [routerLink]="['/login']">Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
